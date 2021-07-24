@@ -1,6 +1,8 @@
 {
-    "workspaces": ["packages/*"],
-    "version": "0.0.0",
+    "workspaces": [
+        "packages/*"
+    ],
+    "version": "1.0.1",
     "npmClient": "yarn",
     "command": {
         "version": {
@@ -12,7 +14,10 @@
             "message": "chore(release): Version bumped %s",
             "conventionalCommits": true,
             "createRelease": "github",
-            "ignoreChanges": ["**/stories/**", "**/**/dist/**"],
+            "ignoreChanges": [
+                "**/stories/**",
+                "**/**/dist/**"
+            ],
             "allowBranch": "main"
         }
     }
