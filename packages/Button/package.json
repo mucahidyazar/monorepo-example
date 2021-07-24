@@ -1,17 +1,38 @@
 {
-  "name": "@monorepo-example/button",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "prebuild": "rimraf dist",
-    "start": "nodemon --watch src --exec yarn build -e js,jsx",
-    "build": "concurrently yarn:build:*",
-    "version": "yarn build",
-    "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps",
-    "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "name": "@monorepo-example/button",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "exports": {
+        ".": {
+            "require": "./dist/cjs/index.js",
+            "default": "./dist/esm/index.js"
+        },
+        "./constants": {
+            "require": "./dist/cjs/constants.js",
+            "default": "./dist/esm/constants.js"
+        }
+    },
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "prebuild": "rimraf dist",
+        "start": "nodemon --watch src --exec yarn build -e js,jsx",
+        "build": "concurrently yarn:build:*",
+        "version": "yarn build",
+        "build:esm": "cross-env BABEL_ENV=esm babel src --root-mode upward --extensions .js,.jsx -d dist/esm --source-maps",
+        "build:cjs": "cross-env BABEL_ENV=cjs babel src --root-mode upward --extensions .js,.jsx -d dist/cjs --source-maps"
+    },
+    "peerDependencies": {
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "styled-components": "^5.3.0",
+        "prop-types": "15.7.2",
+        "theme": "latest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC"
 }

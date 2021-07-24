@@ -1,6 +1,5 @@
 import React from 'react';
-
-import Button from '.';
+import Button from '@monorepo-example/button';
 
 export default {
     component: Button,

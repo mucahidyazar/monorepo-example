@@ -1,6 +1,5 @@
 import React from 'react';
-
-import Input from '.';
+import Input from '@monorepo-example/input';
 
 export default {
     component: Input,
