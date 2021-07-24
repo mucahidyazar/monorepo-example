@@ -15,7 +15,8 @@
         "lint": "yarn lint:js && yarn lint:styles",
         "prettier": "prettier --write \"**/*.{js,json,md,yml}\"",
         "bootstrap": "lerna bootstrap --use-workspaces",
-        "build": "lerna run build --stream"
+        "build": "lerna run build --stream",
+        "commit": "cz"
     },
     "eslintConfig": {
         "extends": [
@@ -65,6 +66,7 @@
         "babel-jest": "^27.0.6",
         "babel-loader": "^8.2.2",
         "babel-plugin-styled-components": "^1.13.2",
+        "cz-conventional-changelog": "3.3.0",
         "eslint": "^7.31.0",
         "eslint-config-get-off-my-lawn": "^6.0.1",
         "jest": "^27.0.6",
@@ -85,5 +87,10 @@
         "stylelint-config-styled-components": "^0.1.1",
         "stylelint-processor-styled-components": "^1.10.0",
         "web-vitals": "^1.0.1"
+    },
+    "config": {
+        "commitizen": {
+            "path": "./node_modules/cz-conventional-changelog"
+        }
     }
 }
