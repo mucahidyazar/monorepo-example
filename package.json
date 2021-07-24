@@ -1,38 +1,89 @@
 {
-  "name": "monorepo-example",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
-    "web-vitals": "^1.0.1"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "monorepo-example",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+        "cra:start": "react-scripts start",
+        "cra:build": "react-scripts build",
+        "cra:test": "react-scripts test",
+        "cra:eject": "react-scripts eject",
+        "clean": "rimraf node_modules yarn.lock",
+        "storybook": "start-storybook -p 6006",
+        "build-storybook": "build-storybook -s public",
+        "lint:js": "eslint . --ext .js --ignore-pattern dist --ignore-pattern node_modules",
+        "lint:styles": "stylelint './packages/**/*.js'",
+        "lint": "yarn lint:js && yarn lint:styles",
+        "prettier": "prettier --write \"**/*.{js,json,md,yml}\"",
+        "bootstrap": "lerna bootstrap --use-workspaces",
+        "build": "lerna run build --stream"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ],
+        "overrides": [
+            {
+                "files": [
+                    "**/*.stories.*"
+                ],
+                "rules": {
+                    "import/no-anonymous-default-export": "off"
+                }
+            }
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@babel/cli": "^7.14.8",
+        "@babel/core": "^7.14.8",
+        "@babel/plugin-proposal-optional-chaining": "^7.14.5",
+        "@babel/preset-env": "^7.14.8",
+        "@babel/preset-react": "^7.14.5",
+        "@storybook/addon-actions": "^6.3.5",
+        "@storybook/addon-essentials": "^6.3.5",
+        "@storybook/addon-links": "^6.3.5",
+        "@storybook/node-logger": "^6.3.5",
+        "@storybook/preset-create-react-app": "^3.2.0",
+        "@storybook/react": "^6.3.5",
+        "@testing-library/jest-dom": "^5.11.4",
+        "@testing-library/react": "^11.1.0",
+        "@testing-library/user-event": "^12.1.10",
+        "babel-core": "^6.26.3",
+        "babel-jest": "^27.0.6",
+        "babel-loader": "^8.2.2",
+        "babel-plugin-styled-components": "^1.13.2",
+        "eslint": "^7.31.0",
+        "eslint-config-get-off-my-lawn": "^6.0.1",
+        "jest": "^27.0.6",
+        "jest-haste-map": "^27.0.6",
+        "jest-resolve": "^27.0.6",
+        "jest-styled-components": "^7.0.5",
+        "lerna": "^4.0.0",
+        "nodemon": "^2.0.12",
+        "prettier": "^2.3.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
+        "react-scripts": "4.0.3",
+        "react-test-renderer": "^17.0.2",
+        "rimraf": "^3.0.2",
+        "styled-components": "^5.3.0",
+        "stylelint": "^13.13.1",
+        "stylelint-config-get-off-my-lawn": "^2.0.0",
+        "stylelint-config-styled-components": "^0.1.1",
+        "stylelint-processor-styled-components": "^1.10.0",
+        "web-vitals": "^1.0.1"
+    }
 }
