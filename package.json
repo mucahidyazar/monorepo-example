@@ -16,6 +16,7 @@
         "prettier": "prettier --write \"**/*.{js,json,md,yml}\"",
         "bootstrap": "lerna bootstrap --use-workspaces",
         "build": "lerna run build --stream",
+        "publish": "lerna publish",
         "commit": "cz"
     },
     "eslintConfig": {
